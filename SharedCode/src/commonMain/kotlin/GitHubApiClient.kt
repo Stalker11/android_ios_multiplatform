@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 
 internal expect val ApplicationDispatcher: CoroutineDispatcher
 
-class GitHubApiClient(private val githubUserName: String, private val githubPassword: String){
+open class GitHubApiClient(open val login:String, open val password:String){
 
 private val httpClient = HttpClient()
 
@@ -22,7 +22,7 @@ fun repos(successCallback: (MutableList<String>) -> Unit, errorCallback: (Except
                     url {
                         protocol = URLProtocol.HTTPS
                         port = 443
-                        host = "https://github.com/"
+                        host = "github.com/"
                         encodedPath = "user/repos"
                         header("Authorization", "Basic " + "")
                         //Timber.info { "Sending request to: ${buildString()}" }

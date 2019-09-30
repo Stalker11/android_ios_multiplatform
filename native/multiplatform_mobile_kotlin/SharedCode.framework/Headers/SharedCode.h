@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedCodeKotlinException, SharedCodeGitHubRepo, SharedCodeKotlinThrowable, SharedCodeKotlinArray;
+@class SharedCodeKotlinException, SharedCodeKotlinThrowable, SharedCodeKotlinArray;
 
 @protocol SharedCodeKotlinIterator;
 
@@ -150,25 +150,19 @@ __attribute__((swift_name("KotlinBoolean")))
 + (instancetype)numberWithBool:(BOOL)value;
 @end;
 
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("GitHubApiClient")))
 @interface SharedCodeGitHubApiClient : KotlinBase
-- (instancetype)initWithGithubUserName:(NSString *)githubUserName githubPassword:(NSString *)githubPassword __attribute__((swift_name("init(githubUserName:githubPassword:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithLogin:(NSString *)login password:(NSString *)password __attribute__((swift_name("init(login:password:)"))) __attribute__((objc_designated_initializer));
 - (void)reposSuccessCallback:(void (^)(NSMutableArray<NSString *> *))successCallback errorCallback:(void (^)(SharedCodeKotlinException *))errorCallback __attribute__((swift_name("repos(successCallback:errorCallback:)")));
+@property (readonly) NSString *login __attribute__((swift_name("login")));
+@property (readonly) NSString *password __attribute__((swift_name("password")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("GitHubRepo")))
-@interface SharedCodeGitHubRepo : KotlinBase
-- (instancetype)initWithName:(NSString *)name htmlUrl:(NSString *)htmlUrl __attribute__((swift_name("init(name:htmlUrl:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
-- (NSString *)component2 __attribute__((swift_name("component2()")));
-- (SharedCodeGitHubRepo *)doCopyName:(NSString *)name htmlUrl:(NSString *)htmlUrl __attribute__((swift_name("doCopy(name:htmlUrl:)")));
-@property (readonly) NSString *name __attribute__((swift_name("name")));
-@property (readonly) NSString *htmlUrl __attribute__((swift_name("htmlUrl")));
+__attribute__((swift_name("TestKotlinMP")))
+@interface SharedCodeTestKotlinMP : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)hello __attribute__((swift_name("hello()")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))

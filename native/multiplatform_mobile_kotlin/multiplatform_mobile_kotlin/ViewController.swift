@@ -10,7 +10,8 @@ import UIKit
 import SharedCode
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var message: UITextField!
+     @IBOutlet weak var labelTest: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,15 +19,26 @@ class ViewController: UIViewController {
         label.center = CGPoint(x: 160, y: 285)
         label.textAlignment = .center
         label.font = label.font.withSize(25)
-        GitHubApiClient(githubUserName: "username", githubPassword: "password").repos(
+        GitHubApiClient(login: "T##String", password: "T##String").repos(
             successCallback:{ [weak self] repos in
-              
+              self?.message.text = repos[0] as! String
+            
             }, errorCallback: { [weak self] error in
-               
+                self?.message.text = error.message
+                self?.labelTest.text = error.message
+                self?.labelTest.textColor = UIColor.red
         })
         view.addSubview(label)
     }
-
-
+   
 }
-
+class Child:GitHubApiClient{
+    override func repos(successCallback: @escaping (NSMutableArray) -> Void, errorCallback: @escaping (KotlinException) -> Void) {
+        <#code#>
+    }
+}
+class Test:TestKotlinMP{
+    override func hello() -> String {
+        <#code#>
+    }
+}

@@ -1,6 +1,7 @@
 package com.olegel.multiplatform_mobile_kotlin
 
 import GitHubApiClient
+import TestKotlinMP
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        GitHubApiClient("", "").repos(
+        GitHubApiClient().repos(
             successCallback = {
                 GlobalScope.launch(Dispatchers.Main) {
                     text.text = it[0]
@@ -27,3 +28,4 @@ class MainActivity : AppCompatActivity() {
             })
     }
     }
+class RRR: TestKotlinMP()
