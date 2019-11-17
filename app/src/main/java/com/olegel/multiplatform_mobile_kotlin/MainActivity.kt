@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        GitHubApiClient().repos(
+        GitHubApiClient("","").repos(
             successCallback = {
                 GlobalScope.launch(Dispatchers.Main) {
-                    text.text = it[0]
+                    text.text = it//it.articles[0].data
                 }
             }, errorCallback = {
                 GlobalScope.launch(Dispatchers.Main) {
@@ -28,4 +28,8 @@ class MainActivity : AppCompatActivity() {
             })
     }
     }
-class RRR: TestKotlinMP()
+class RRR: TestKotlinMP() {
+    override fun hello(): String {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}

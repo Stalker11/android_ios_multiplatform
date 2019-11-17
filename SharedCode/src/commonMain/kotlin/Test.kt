@@ -1,5 +1,3 @@
-open class TestKotlinMP {
-    fun hello():String{
-       return "Hello kotlin"
-    }
+abstract class TestKotlinMP {
+    abstract fun hello():String
 }

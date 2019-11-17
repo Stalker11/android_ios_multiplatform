@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    id ("org.jetbrains.kotlin.plugin.serialization") version "1.3.50" apply true
 }
 
 kotlin {
@@ -25,6 +26,7 @@ kotlin {
     val ktor_client = "1.2.4"
     val kotlin_coroutines = "1.3.0"
     val kotlin_serialization = "0.12.0"
+    val serialization_version = "0.13.0"
 
     sourceSets["commonMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
@@ -32,6 +34,7 @@ kotlin {
         implementation("io.ktor:ktor-client-json:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${kotlin_coroutines}")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${kotlin_serialization}")
+        implementation ("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version")
     }
 
     sourceSets["androidMain"].dependencies {
@@ -39,14 +42,14 @@ kotlin {
         implementation("io.ktor:ktor-client-core-jvm:${ktor_client}")
         implementation("io.ktor:ktor-client-json-jvm:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlin_coroutines}")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${kotlin_serialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${serialization_version}")
     }
     sourceSets["iosMain"].dependencies {
         implementation("io.ktor:ktor-client-core-native:${ktor_client}")
         implementation("io.ktor:ktor-client-ios:${ktor_client}")
         implementation("io.ktor:ktor-client-json-native:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${kotlin_coroutines}")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${kotlin_serialization}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${serialization_version}")
     }
 }
 

@@ -21,24 +21,21 @@ class ViewController: UIViewController {
         label.font = label.font.withSize(25)
         GitHubApiClient(login: "T##String", password: "T##String").repos(
             successCallback:{ [weak self] repos in
-              self?.message.text = repos[0] as! String
+                //self?.message.text = repos
             
             }, errorCallback: { [weak self] error in
                 self?.message.text = error.message
                 self?.labelTest.text = error.message
                 self?.labelTest.textColor = UIColor.red
+        
         })
         view.addSubview(label)
     }
    
 }
 class Child:GitHubApiClient{
-    override func repos(successCallback: @escaping (NSMutableArray) -> Void, errorCallback: @escaping (KotlinException) -> Void) {
-        <#code#>
-    }
+
 }
-class Test:TestKotlinMP{
-    override func hello() -> String {
-        <#code#>
-    }
+class CCC:TestKotlinMP{
+    
 }

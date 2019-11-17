@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4434DDBE2381F14400B4ACDE /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDBD2381F14300B4ACDE /* SharedCode.framework */; };
+		4434DDC32381F36A00B4ACDE /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDBD2381F14300B4ACDE /* SharedCode.framework */; };
+		4434DDC52381F39A00B4ACDE /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDC42381F39900B4ACDE /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44C74DED2331737D0092C8F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74DEC2331737D0092C8F0 /* AppDelegate.swift */; };
 		44C74DEF2331737D0092C8F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74DEE2331737D0092C8F0 /* ViewController.swift */; };
 		44C74DF22331737D0092C8F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C74DF02331737D0092C8F0 /* Main.storyboard */; };
 		44C74DF7233173840092C8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C74DF6233173840092C8F0 /* Assets.xcassets */; };
 		44C74E05233173850092C8F0 /* multiplatform_mobile_kotlinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74E04233173850092C8F0 /* multiplatform_mobile_kotlinTests.swift */; };
 		44C74E10233173850092C8F0 /* multiplatform_mobile_kotlinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74E0F233173850092C8F0 /* multiplatform_mobile_kotlinUITests.swift */; };
-		44F9626423427D19006DCD93 /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F9626323427D19006DCD93 /* SharedCode.framework */; };
-		44F9626523427D19006DCD93 /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44F9626323427D19006DCD93 /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				44F9626523427D19006DCD93 /* SharedCode.framework in Embed Frameworks */,
+				4434DDC52381F39A00B4ACDE /* SharedCode.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +50,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4434DDBD2381F14300B4ACDE /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
+		4434DDBF2381F31A00B4ACDE /* SharedCode.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SharedCode.framework.dSYM; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework.dSYM"; sourceTree = "<group>"; };
+		4434DDC12381F33400B4ACDE /* SharedCode */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = SharedCode; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework/SharedCode"; sourceTree = "<group>"; };
+		4434DDC42381F39900B4ACDE /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 		44C74DE92331737D0092C8F0 /* multiplatform_mobile_kotlin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = multiplatform_mobile_kotlin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C74DEC2331737D0092C8F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44C74DEE2331737D0092C8F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/olegmusenko/AndroidStudioProjects/multiplatform_mobile_kotlin/native/multiplatform_mobile_kotlin/multiplatform_mobile_kotlin/ViewController.swift; sourceTree = "<absolute>"; };
@@ -63,8 +68,6 @@
 		44C74E0F233173850092C8F0 /* multiplatform_mobile_kotlinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multiplatform_mobile_kotlinUITests.swift; sourceTree = "<group>"; };
 		44C74E11233173850092C8F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44C74E1E2331742C0092C8F0 /* AndroidStudioProjects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AndroidStudioProjects; path = ../../..; sourceTree = "<group>"; };
-		44C74E23233175930092C8F0 /* SharedCode */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = SharedCode; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework/SharedCode"; sourceTree = "<group>"; };
-		44F9626323427D19006DCD93 /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44F9626423427D19006DCD93 /* SharedCode.framework in Frameworks */,
+				4434DDBE2381F14400B4ACDE /* SharedCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4434DDC32381F36A00B4ACDE /* SharedCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +100,7 @@
 		44C74DE02331737D0092C8F0 = {
 			isa = PBXGroup;
 			children = (
-				44F9626323427D19006DCD93 /* SharedCode.framework */,
+				4434DDC42381F39900B4ACDE /* SharedCode.framework */,
 				44C74DEB2331737D0092C8F0 /* multiplatform_mobile_kotlin */,
 				44C74E03233173850092C8F0 /* multiplatform_mobile_kotlinTests */,
 				44C74E0E233173850092C8F0 /* multiplatform_mobile_kotlinUITests */,
@@ -150,7 +154,9 @@
 		44C74E1D2331742B0092C8F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44C74E23233175930092C8F0 /* SharedCode */,
+				4434DDC12381F33400B4ACDE /* SharedCode */,
+				4434DDBF2381F31A00B4ACDE /* SharedCode.framework.dSYM */,
+				4434DDBD2381F14300B4ACDE /* SharedCode.framework */,
 				44C74E1E2331742C0092C8F0 /* AndroidStudioProjects */,
 			);
 			name = Frameworks;
@@ -478,10 +484,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(SRCROOT)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = multiplatform_mobile_kotlin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,10 +503,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(SRCROOT)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$SRCROOT/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = multiplatform_mobile_kotlin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
