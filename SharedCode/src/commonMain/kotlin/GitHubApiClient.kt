@@ -6,6 +6,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
+import kotlinx.serialization.list
 import model.NWArticle
 import model.NWArticles
 
@@ -15,7 +16,7 @@ open class GitHubApiClient(open val login:String, open val password:String){
 
 private val httpClient = HttpClient()
 
-fun repos(successCallback: (String) -> Unit, errorCallback: (Exception) -> Unit) {
+fun repos(successCallback: (List<NWArticle>) -> Unit, errorCallback: (Exception) -> Unit) {
     GlobalScope.apply {
         launch(ApplicationDispatcher) {
             try {
@@ -30,8 +31,8 @@ fun repos(successCallback: (String) -> Unit, errorCallback: (Exception) -> Unit)
                     }
                 }
                 val json = Json(JsonConfiguration.Stable)//.parse(GitHubRepo.serializer().list, reposString)
-               // val article = json.parse(NWArticles.serializer(),reposString)
-                successCallback("Hello")
+                val article = json.parse(NWArticle.serializer().list,reposString)
+                successCallback(article)
             } catch (ex: Exception) {
                 errorCallback(ex)
             }

@@ -36,7 +36,10 @@ kotlin {
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${kotlin_serialization}")
         implementation ("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version")
     }
-
+    sourceSets["commonTest"].dependencies{
+        implementation ("org.jetbrains.kotlin:kotlin-test-common")
+        implementation ("org.jetbrains.kotlin:kotlin-test-annotations-common")
+    }
     sourceSets["androidMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib")
         implementation("io.ktor:ktor-client-core-jvm:${ktor_client}")
