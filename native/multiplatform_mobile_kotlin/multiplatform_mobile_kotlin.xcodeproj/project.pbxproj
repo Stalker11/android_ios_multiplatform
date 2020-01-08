@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4432668723BF6F6D0084C024 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432668623BF6F6D0084C024 /* ViewController.swift */; };
 		4434DDBE2381F14400B4ACDE /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDBD2381F14300B4ACDE /* SharedCode.framework */; };
 		4434DDC32381F36A00B4ACDE /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDBD2381F14300B4ACDE /* SharedCode.framework */; };
 		4434DDC52381F39A00B4ACDE /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4434DDC42381F39900B4ACDE /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44C74DED2331737D0092C8F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74DEC2331737D0092C8F0 /* AppDelegate.swift */; };
-		44C74DEF2331737D0092C8F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74DEE2331737D0092C8F0 /* ViewController.swift */; };
 		44C74DF22331737D0092C8F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C74DF02331737D0092C8F0 /* Main.storyboard */; };
 		44C74DF7233173840092C8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C74DF6233173840092C8F0 /* Assets.xcassets */; };
 		44C74E05233173850092C8F0 /* multiplatform_mobile_kotlinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C74E04233173850092C8F0 /* multiplatform_mobile_kotlinTests.swift */; };
@@ -50,13 +50,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4432668623BF6F6D0084C024 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4434DDBD2381F14300B4ACDE /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 		4434DDBF2381F31A00B4ACDE /* SharedCode.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SharedCode.framework.dSYM; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework.dSYM"; sourceTree = "<group>"; };
 		4434DDC12381F33400B4ACDE /* SharedCode */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = SharedCode; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework/SharedCode"; sourceTree = "<group>"; };
 		4434DDC42381F39900B4ACDE /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 		44C74DE92331737D0092C8F0 /* multiplatform_mobile_kotlin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = multiplatform_mobile_kotlin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C74DEC2331737D0092C8F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44C74DEE2331737D0092C8F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/olegmusenko/AndroidStudioProjects/multiplatform_mobile_kotlin/native/multiplatform_mobile_kotlin/multiplatform_mobile_kotlin/ViewController.swift; sourceTree = "<absolute>"; };
 		44C74DF12331737D0092C8F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44C74DF42331737D0092C8F0 /* multiplatform_mobile_kotlin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = multiplatform_mobile_kotlin.xcdatamodel; sourceTree = "<group>"; };
 		44C74DF6233173840092C8F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,11 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				44C74DEC2331737D0092C8F0 /* AppDelegate.swift */,
-				44C74DEE2331737D0092C8F0 /* ViewController.swift */,
 				44C74DF02331737D0092C8F0 /* Main.storyboard */,
 				44C74DF6233173840092C8F0 /* Assets.xcassets */,
 				44C74DFB233173840092C8F0 /* Info.plist */,
 				44C74DF32331737D0092C8F0 /* multiplatform_mobile_kotlin.xcdatamodeld */,
+				4432668623BF6F6D0084C024 /* ViewController.swift */,
 			);
 			path = multiplatform_mobile_kotlin;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C74DEF2331737D0092C8F0 /* ViewController.swift in Sources */,
+				4432668723BF6F6D0084C024 /* ViewController.swift in Sources */,
 				44C74DED2331737D0092C8F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
