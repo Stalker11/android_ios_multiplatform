@@ -2,3 +2,5 @@ enableFeaturePreview("GRADLE_METADATA")
 
 include ':app', ':SharedCode'
 
+enableFeaturePreview('GRADLE_METADATA')
+

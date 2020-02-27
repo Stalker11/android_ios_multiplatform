@@ -1,0 +1,25 @@
+CREATE TABLE articles (
+  article_id INTEGER NOT NULL,
+  article_name TEXT NOT NULL,
+  article_text TEXT NOT NULL
+);
+
+CREATE INDEX articles_full_name ON articles(article_id);
+insertPlayers:
+INSERT INTO articles (article_id, article_name, article_text)
+VALUES (?, ?, ?);
+
+selectAll:
+SELECT *
+FROM articles;
+
+updateArticle:
+UPDATE articles
+SET article_text = (SELECT article_id FROM articles WHERE article_name = :names)
+WHERE article_name = :team_name;
+
+
+updateCoachForTeam:
+UPDATE articles
+SET article_name = ?
+WHERE article_text = ?;

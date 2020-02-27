@@ -2,7 +2,14 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.3.61" apply true
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.3.61" apply true
+    id("com.squareup.sqldelight") apply true
+}
+
+sqldelight {
+    database("ArticlesDb") {
+        packageName = "com.olegel.sqldelight.article"
+    }
 }
 
 kotlin {
@@ -20,12 +27,23 @@ kotlin {
             }
         }
     }
+    jvm("android") {
+        val main by compilations.getting {
+            kotlinOptions {
+                // Setup the Kotlin compiler options for the 'main' compilation:
+                jvmTarget = "1.8"
+            }
 
-    jvm("android")
+            compileKotlinTask // get the Kotlin task 'compileKotlinJvm'
+            output // get the main compilation output
+        }
+    }
 
     val ktor_client = "1.2.6"
     val kotlin_coroutines = "1.3.3"
     val serialization_version = "0.14.0"
+    val kodein_version = "6.5.1"
+    val sqldelight_version = "1.2.2"
 
     sourceSets["commonMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
@@ -33,11 +51,15 @@ kotlin {
         implementation("io.ktor:ktor-client-json:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${kotlin_coroutines}")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${serialization_version}")
-        implementation ("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version")
+        implementation("org.kodein.di:kodein-di-core:${kodein_version}")
+        implementation("org.kodein.di:kodein-di-erased:${kodein_version}")
+        implementation("com.squareup.sqldelight:runtime:${sqldelight_version}")
+        implementation("com.squareup.sqldelight:coroutines-extensions:${sqldelight_version}")
     }
-    sourceSets["commonTest"].dependencies{
-        implementation ("org.jetbrains.kotlin:kotlin-test-common")
-        implementation ("org.jetbrains.kotlin:kotlin-test-annotations-common")
+    sourceSets["commonTest"].dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-test-common")
+        implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
     }
     sourceSets["androidMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib")
@@ -45,6 +67,8 @@ kotlin {
         implementation("io.ktor:ktor-client-json-jvm:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlin_coroutines}")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${serialization_version}")
+        implementation("com.squareup.sqldelight:android-driver:${sqldelight_version}")
+        implementation("com.squareup.sqldelight:coroutines-extensions-jvm:${sqldelight_version}")
     }
     sourceSets["iosMain"].dependencies {
         implementation("io.ktor:ktor-client-core-native:${ktor_client}")
@@ -52,9 +76,10 @@ kotlin {
         implementation("io.ktor:ktor-client-json-native:${ktor_client}")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${kotlin_coroutines}")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${serialization_version}")
+        implementation("com.squareup.sqldelight:native-driver:${sqldelight_version}")
     }
-}
 
+}
 
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
