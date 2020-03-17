@@ -1,10 +1,10 @@
 package com.olegel.multiplatform_mobile_kotlin.utils
 
+import Db
 import android.content.Context
 import com.olegel.sqldelight.article.ArticlesDb
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import data.Schema
-import database.Db
 
 fun Db.getInstance(context: Context): ArticlesDb {
     if (!Db.ready) {

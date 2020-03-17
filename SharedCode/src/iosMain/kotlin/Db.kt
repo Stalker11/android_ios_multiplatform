@@ -7,7 +7,7 @@ import kotlin.native.concurrent.AtomicReference
 import com.olegel.sqldelight.article.ArticlesDb
 import kotlin.native.concurrent.freeze
 
-object Db {
+actual object Db {
   private val driverRef = AtomicReference<SqlDriver?>(null)
   private val dbRef = AtomicReference<ArticlesDb?>(null)
 

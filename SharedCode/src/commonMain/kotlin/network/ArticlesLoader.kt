@@ -1,26 +1,28 @@
+package network
+
+import ApplicationDispatcher
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.http.URLProtocol
-import kotlinx.coroutines.CoroutineDispatcher
+import kodein
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.list
+import kotlinx.serialization.json.JsonConfiguration
 import model.NWArticle
 import org.kodein.di.erased.instance
 import utils.Constants
 import utils.MainCoroutine
 
-internal expect val ApplicationDispatcher: CoroutineDispatcher
-
 open class ArticlesLoader {
     private val hostName = "elenergi.ru/"
     private val path = "wp-json/wp/v2/posts?_embed=true"
     private val pageName = "&page="
-    private val httpClient: HttpClient by kodein.instance(Constants.httpClientTag)
-    private val coroutine: MainCoroutine by kodein.instance(Constants.coroutineValue)
+    private val httpClient: HttpClient = HttpClient()//by kodein.instance(Constants.httpClientTag)
+    private val coroutine: MainCoroutine = MainCoroutine()//by kodein.instance(Constants.coroutineValue)
 
     @UnstableDefault
     fun loadFirst(successCallback: (List<NWArticle>) -> Unit, errorCallback: (Exception) -> Unit) {
@@ -34,7 +36,8 @@ open class ArticlesLoader {
                             encodedPath = path
                         }
                     }
-                    val article = Json.nonstrict.parse(NWArticle.serializer().list, reposString)
+                    val article = Json(
+                        JsonConfiguration.Stable.copy(prettyPrint = true)).parse(NWArticle.serializer().list, reposString)
                     successCallback(article)
                 } catch (ex: Exception) {
                     errorCallback(ex)
@@ -59,7 +62,8 @@ open class ArticlesLoader {
                             encodedPath = path.plus(pageName).plus(page)
                         }
                     }
-                    val article = Json.nonstrict.parse(NWArticle.serializer().list, reposString)
+                    val article = Json(
+                        JsonConfiguration.Stable.copy(prettyPrint = true)).parse(NWArticle.serializer().list, reposString)
                     successCallback(article)
                 } catch (ex: Exception) {
                     errorCallback(ex)

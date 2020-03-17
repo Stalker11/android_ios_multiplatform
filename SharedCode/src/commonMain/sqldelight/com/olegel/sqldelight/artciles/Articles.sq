@@ -15,8 +15,8 @@ FROM articles;
 
 updateArticle:
 UPDATE articles
-SET article_text = (SELECT article_id FROM articles WHERE article_name = :names)
-WHERE article_name = :team_name;
+SET article_text = (SELECT article_id FROM articles WHERE article_name = :names AND article_id = :id)
+WHERE article_name = :name AND article_id = :id;
 
 
 updateCoachForTeam:

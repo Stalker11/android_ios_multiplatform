@@ -1,14 +1,13 @@
 package com.olegel.multiplatform_mobile_kotlin
 
-import ArticlesLoader
 import TestKotlinMP
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.olegel.multiplatform_mobile_kotlin.utils.AppLogger
 import com.olegel.multiplatform_mobile_kotlin.utils.getInstance
-import database.Db
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import network.ArticlesLoader
 
 class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 

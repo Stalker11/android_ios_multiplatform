@@ -12,6 +12,5 @@ fun createQueryWrapper(driver: SqlDriver): ArticlesDb {
 object Schema : SqlDriver.Schema by ArticlesDb.Schema {
     override fun create(driver: SqlDriver) {
         ArticlesDb.Schema.create(driver)
-
     }
 }

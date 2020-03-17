@@ -39,9 +39,9 @@ kotlin {
         }
     }
 
-    val ktor_client = "1.2.6"
-    val kotlin_coroutines = "1.3.3"
-    val serialization_version = "0.14.0"
+    val ktor_client = "1.3.2"
+    val kotlin_coroutines = "1.3.4"
+    val serialization_version = "0.20.0"
     val kodein_version = "6.5.1"
     val sqldelight_version = "1.2.2"
 

@@ -1,10 +1,8 @@
-package database
-
+import com.olegel.sqldelight.article.ArticlesDb
 import com.squareup.sqldelight.db.SqlDriver
 import data.createQueryWrapper
-import com.olegel.sqldelight.article.ArticlesDb
 
-object Db {
+actual object Db {
     private var driverRef: SqlDriver? = null
     private var dbRef: ArticlesDb? = null
 
@@ -17,7 +15,7 @@ object Db {
         dbRef = db
     }
 
-    internal fun dbClear() {
+    fun dbClear() {
         driverRef!!.close()
         dbRef = null
         driverRef = null
