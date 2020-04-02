@@ -1,3 +1,5 @@
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.ios.Ios
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Runnable
 import platform.darwin.dispatch_async
@@ -17,3 +19,8 @@ internal class NsQueueDispatcher(
         }
     }
 }
+
+internal actual val httpClient: HttpClient
+    get() = HttpClient(Ios){
+
+    }
