@@ -43,7 +43,7 @@ kotlin {
     val kotlin_coroutines = "1.3.4"
     val serialization_version = "0.20.0"
     val kodein_version = "6.5.1"
-    val sqldelight_version = "1.2.2"
+    val sqldelight_version = "1.3.0"
 
     sourceSets["commonMain"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
