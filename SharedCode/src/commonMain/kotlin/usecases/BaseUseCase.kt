@@ -10,9 +10,9 @@ abstract class BaseUseCase<R: BaseRequest, T>() {
         mRequest = request
         val validated = request?.validate() ?: false
         if (validated) return run()
-        return Response.RequestError(IllegalArgumentException("Cannot get data from API"))
+        return Response.Error(IllegalArgumentException("Cannot get data from API"))
     }
-    abstract fun run(): Response<T>
+    abstract suspend fun run(): Response<T>
 
     fun getChannel() = channel
 }

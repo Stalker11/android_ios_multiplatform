@@ -1,6 +1,7 @@
 package network
 
 import ApplicationDispatcher
+import data.Response
 import httpClient
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
@@ -46,7 +47,23 @@ open class ArticlesLoader {
             }
         }
     }
-
+    @UnstableDefault
+    suspend fun loadFirst(): Response<MutableList<NWArticle>> {
+                try {
+                    val reposString = httpClient.get<String> {
+                        url {
+                            protocol = URLProtocol.HTTPS
+                            host = hostName
+                            encodedPath = path
+                        }
+                    }
+                    val article = Json(
+                        JsonConfiguration.Stable.copy(ignoreUnknownKeys = true)).parse(NWArticle.serializer().list, reposString)
+                    return Response.RequestSuccess(article.toMutableList())
+                } catch (ex: Exception) {
+                    return Response.Error(exception = ex)
+                }
+    }
     @UnstableDefault
     fun loadNext(
         successCallback: (List<NWArticle>) -> Unit,
