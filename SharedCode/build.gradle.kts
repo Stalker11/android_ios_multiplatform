@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.3.61" apply true
     id("com.squareup.sqldelight") apply true
+    id("com.android.library") apply true
 }
 
 sqldelight {
@@ -11,7 +12,34 @@ sqldelight {
         packageName = "com.olegel.sqldelight.article"
     }
 }
+android {
+    compileSdkVersion(29)
+    buildToolsVersion("29.0.2")
 
+    defaultConfig {
+        minSdkVersion(21)
+        targetSdkVersion(29)
+    }
+
+    // By default the android gradle plugin expects to find the kotlin source files in
+    // the folder `main` and the test in the folder `test`. This is to be able place
+    // the source code files inside androidMain and androidTest folders
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            java.srcDirs(file("src/androidMain/kotlin"))
+            res.srcDirs(file("src/androidMain/res"))
+        }
+        getByName("test") {
+            java.srcDirs(file("src/androidTest/kotlin"))
+            res.srcDirs(file("src/androidTest/res"))
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
 kotlin {
     //select iOS target platform depending on the Xcode environment variables
     val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
@@ -27,18 +55,10 @@ kotlin {
             }
         }
     }
-    jvm("android") {
-        val main by compilations.getting {
-            kotlinOptions {
-                // Setup the Kotlin compiler options for the 'main' compilation:
-                jvmTarget = "1.8"
-            }
 
-            compileKotlinTask // get the Kotlin task 'compileKotlinJvm'
-            output // get the main compilation output
-        }
+    targets {
+        targetFromPreset(presets.getByName("android"), "android")
     }
-
     val ktor_client = "1.3.2"
     val kotlin_coroutines = "1.3.4"
     val serialization_version = "0.20.0"
@@ -63,6 +83,7 @@ kotlin {
         implementation("com.squareup.sqldelight:coroutines-extensions:${sqldelight_version}")
         // MOKO - MVVM
         implementation ("dev.icerock.moko:mvvm:$moko_mvvm_version")
+        implementation ("androidx.lifecycle:lifecycle-viewmodel:2.2.0")
     }
     sourceSets["commonTest"].dependencies {
         implementation("org.jetbrains.kotlin:kotlin-test-common")
