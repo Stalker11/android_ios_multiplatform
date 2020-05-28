@@ -14,7 +14,7 @@ sqldelight {
 }
 android {
     compileSdkVersion(29)
-    buildToolsVersion("29.0.2")
+    buildToolsVersion("29.0.3")
 
     defaultConfig {
         minSdkVersion(21)
@@ -62,7 +62,7 @@ kotlin {
     val ktor_client = "1.3.2"
     val kotlin_coroutines = "1.3.4"
     val serialization_version = "0.20.0"
-    val kodein_version = "6.5.1"
+    val kodein_version = "7.0.0"
     val sqldelight_version = "1.3.0"
     val moko_mvvm_version = "0.6.0"
 
@@ -76,8 +76,8 @@ kotlin {
         //Kotlin serialization
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${serialization_version}")
         //Kodein DI
-        implementation("org.kodein.di:kodein-di-core:${kodein_version}")
-        implementation("org.kodein.di:kodein-di-erased:${kodein_version}")
+        implementation("org.kodein.di:kodein-di:${kodein_version}")
+        //implementation("org.kodein.di:${kodein_version}")
         //SQLDelight
         implementation("com.squareup.sqldelight:runtime:${sqldelight_version}")
         implementation("com.squareup.sqldelight:coroutines-extensions:${sqldelight_version}")

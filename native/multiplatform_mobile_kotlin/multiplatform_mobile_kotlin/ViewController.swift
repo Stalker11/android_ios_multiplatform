@@ -21,19 +21,19 @@ class ViewController: UIViewController {
         //label.center = CGPoint(x: 160, y: 285)
        // label.textAlignment = .center
        // label.font = label.font.withSize(25)
-        ArticlesLoader().loadFirst(
-            successCallback:{ [weak self] data in
-                self?.message.text = data[0].component3()
-                self?.labelTest.text = data[0].component3()
-                print(data[0].component3())
-            
-            }, errorCallback: { [weak self] error in
-                self?.message.text = error.message
-                self?.labelTest.text = error.message
-                self?.labelTest.textColor = UIColor.red
-                print(error.message)
-        
-        })
+//        ArticlesLoader().loadFirst(
+//            successCallback:{ [weak self] data in
+//                self?.message.text = data[0].component3()
+//                self?.labelTest.text = data[0].component3()
+//                print(data[0].component3())
+//            
+//            }, errorCallback: { [weak self] error in
+//                self?.message.text = error.message
+//                self?.labelTest.text = error.message
+//                self?.labelTest.textColor = UIColor.red
+//                print(error.message)
+//        
+//        })
        // view.addSubview(label)
     }
    

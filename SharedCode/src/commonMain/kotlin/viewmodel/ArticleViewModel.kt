@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import model.NWArticle
 import org.kodein.di.erased.instance
+import org.kodein.di.newInstance
 import usecases.ReceiveArticlesRequest
 import usecases.ReceiveArticlesUseCase
 import utils.launchSilent
